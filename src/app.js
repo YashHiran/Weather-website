@@ -4,6 +4,7 @@ const path = require('path')
 const hbs = require('hbs')
 const geoCode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+const port = process.env.PORT || 3000
 
 //Define paths for Express config
 const mypath = path.join(__dirname, '../public');
@@ -86,4 +87,6 @@ app.get('*',(req, res)=>{
     res.send("<h1>My 404 page<h1>");   
 }) 
  
-app.listen(3000)
+app.listen(port, ()=>{
+    console.log('Server is ON on port ' + port);
+})
